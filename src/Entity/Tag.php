@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
+use App\Infrastructure\FormatType;
 use App\Repository\TagRepository;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 #[ORM\Entity(repositoryClass: TagRepository::class)]
-class Tag
+class Tag implements JsonSerializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -95,5 +97,15 @@ class Tag
         $this->courses->removeElement($course);
 
         return $this;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'createAt' => $this->createdAt->format(FormatType::DATE_TIME_FORMAT),
+            'updatedAt' => $this->updatedAt->format(FormatType::DATE_TIME_FORMAT),
+        ];
     }
 }

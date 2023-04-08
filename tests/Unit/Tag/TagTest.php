@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Tests\Unit;
+namespace App\Tests\Unit\Tag;
 
 use App\Entity\Tag;
 use DateTimeImmutable;
