@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - checkout
-
+      - run: cp .evn.test .env
       # Download and cache dependencies
       - restore_cache:
           keys:
