@@ -9,8 +9,6 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_USER: user
-          MYSQL_PASSWORD: passw0rd
     steps:
       - checkout
       - run:
@@ -57,6 +55,11 @@ jobs:
       - run:
           name: "Run cache warmup"
           command: bin/console cache:warmup --env=test
+
+      # run static analysis with psalm
+      - run:
+          name: "Run static analysis: psalm"
+          command: /vendor/bin/psalm
 
       # run tests with phpunit
       - run:
