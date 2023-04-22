@@ -59,7 +59,7 @@ jobs:
       # run static analysis with psalm
       - run:
           name: "Run static analysis: psalm"
-          command: /vendor/bin/psalm
+          command: ./vendor/bin/psalm
 
       # run tests with phpunit
       - run:
