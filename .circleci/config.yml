@@ -8,7 +8,7 @@ jobs:
       - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: test
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_USER: user
           MYSQL_PASSWORD: passw0rd
     steps:
