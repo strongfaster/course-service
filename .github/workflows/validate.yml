@@ -1,8 +1,4 @@
-name: Validate1
-on:
-  push:
-    branches:
-      - test
+name: Validate
 
 jobs:
   validate:
