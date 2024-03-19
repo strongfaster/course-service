@@ -1,5 +1,8 @@
 name: Validate1
 on:
+  push:
+    branches:
+      - test
   workflow_run:
     workflows: [Build]
     types: [completed]
