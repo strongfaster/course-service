@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for other checks to succeed
-        uses: lewagon/wait-on-check-action@v1.3.1
+        uses: explorium-ai/wait-github-status-action@v1.0.2
         with:
-          ref: ${{ github.ref }}
-          running-workflow-name: 'Publish the package'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
+          name: Build
+          token: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ github.event.pull_request.head.sha }} # Must
       - run: echo "🎉 ${{ github.event_name }} event."
