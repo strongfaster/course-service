@@ -5,7 +5,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 build event."
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "🎉 validate event."
