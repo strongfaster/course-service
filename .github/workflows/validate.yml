@@ -2,13 +2,8 @@ name: Validate
 
 jobs:
   validate:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    needs: [ build ]
+    if: ${{ needs.check-for-changes.outputs.exit_code == 1 }}
     steps:
-      - name: Wait for other checks to succeed
-        uses: explorium-ai/wait-github-status-action@v1.0.2
-        with:
-          name: Build
-          token: ${{ secrets.GITHUB_TOKEN }}
-          sha: ${{ github.event.pull_request.head.sha }} # Must
       - run: echo "🎉 ${{ github.event_name }} event."

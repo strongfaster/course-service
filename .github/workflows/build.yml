@@ -3,5 +3,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      exit_code: ${{ steps.check.outputs.exit_code}}
     steps:
       - run: echo "🎉 build event."
