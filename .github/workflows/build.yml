@@ -7,4 +7,4 @@ jobs:
     outputs:
       exit_code: ${{ steps.check.outputs.exit_code}}
     steps:
-      - run: echo "🎉 build event."
+      - run: echo "🎉 build event1."
