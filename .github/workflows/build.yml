@@ -2,6 +2,7 @@ name: Build
 on: [push]
 jobs:
   build:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     outputs:
       exit_code: ${{ steps.check.outputs.exit_code}}
