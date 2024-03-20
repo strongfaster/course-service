@@ -1,0 +1,9 @@
+name: Validate
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    needs: [ build ]
+    if: ${{ needs.check-for-changes.outputs.exit_code == 1 }}
+    steps:
+      - run: echo "🎉 ${{ github.event_name }} event."
